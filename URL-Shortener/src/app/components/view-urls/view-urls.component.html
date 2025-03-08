@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Shortened URLs</h2>
+    <p class="text-center">Total URLs: <strong>{{ shortenURLs.length }}</strong></p>
+    <ul class="list-group text-break">
+      <li *ngFor="let url of shortenURLs" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Original: </strong> <a [href]="url.longURL" target="_blank" class="text-dark">{{ url.longURL }}</a><br>
+          <strong>Short: </strong> 
+          <a [href]="'http://localhost:50037/url?shorten=' + url.shortenPath" 
+             target="_blank" 
+             class="text-primary text-decoration-none fw-bold">
+            {{ 'http://localhost:50037/url?shorten=' + url.shortenPath }}
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
