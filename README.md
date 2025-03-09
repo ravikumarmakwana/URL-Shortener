@@ -170,6 +170,23 @@ The system employs a microservices architecture, dividing the application into s
   ```
 - **Status Codes**: `200 OK`, `401 Unauthorized`
 
+## URL Generation Capacity
+
+This system uses Base62 encoding to generate short URLs. The number of unique URLs depends on the length of the generated short URL.
+
+| Short URL Length | Max Unique URLs (62^L) |
+|-----------------|--------------------|
+| **1 character** | 62 |
+| **2 characters** | 3,844 |
+| **3 characters** | 238,328 |
+| **4 characters** | 14.7 million |
+| **5 characters** | 916 million |
+| **6 characters** | 56.8 billion |
+| **7 characters** | 3.52 trillion |
+| **8 characters** | 218 trillion |
+
+Since this system starts URL generation from a minimum of 5 characters, it can generate at least **900+ million unique URLs** before requiring longer short URLs.
+
 ## Database
  - Structured Database: Microsoft SQL Server (MSSQL)
 
